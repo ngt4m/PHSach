@@ -56,64 +56,6 @@ WorkYear ---< UnitBudget >--- Unit
      +---< Batch ---< BookBatch >--- Allocation >--- UnitBudget
 ```
 
-### Mô tả bảng chính
-
-#### WorkYear
-- WorkYearId (PK, varchar(50))
-- Year (int)
-- Description (nvarchar)
-- CreatedAt (datetime)
-
-#### Unit
-- UnitId (PK, varchar(50))
-- UnitCode (nvarchar, unique)
-- UnitName (nvarchar)
-- Address, ContactPerson, Phone
-- CreatedAt (datetime)
-
-#### UnitBudget
-- UnitBudgetId (PK, varchar(50))
-- UnitId (FK → Unit)
-- WorkYearId (FK → WorkYear)
-- InitialBudget, RemainingBudget (decimal)
-- CreatedAt (datetime)
-- Ràng buộc: **UnitId + WorkYearId UNIQUE**
-
-#### Batch
-- BatchId (PK, varchar(50))
-- WorkYearId (FK → WorkYear)
-- BatchName (nvarchar)
-- CreatedDate (datetime)
-
-#### BookBatch
-- BookBatchId (PK, varchar(50))
-- BatchId (FK → Batch)
-- BookCode (nvarchar)
-- Title (nvarchar)
-- UnitOfMeasure (nvarchar, default 'cuốn')
-- Price (decimal)
-- Quantity (int)
-
-#### Allocation
-- AllocationId (PK, varchar(50))
-- BatchId (FK → Batch)
-- BookBatchId (FK → BookBatch)
-- UnitBudgetId (FK → UnitBudget)
-- AllocatedQuantity (int)
-- AllocatedCost (decimal)
-- CreatedAt (datetime)
-
-#### User
-- UserId (PK, varchar(50))
-- Username (unique)
-- PasswordHash
-- FullName
-- Role (admin, manager, viewer)
-- CreatedAt
-- IsActive
-
----
-
 ## 📊 Ví dụ quy trình dữ liệu
 
 - **Năm làm việc**: 2025
@@ -140,8 +82,8 @@ WorkYear ---< UnitBudget >--- Unit
 
 ---
 
-## 👨‍💻 Công nghệ khuyến nghị
+## 👨‍💻 Công nghệ
 - Backend: **ASP.NET Core + EF Core**
 - Database: **SQL Server**
 - Frontend: Razor Pages / MVC + Bootstrap
-- Excel Import/Export: **EPPlus** hoặc **ClosedXML**
+- Excel Import/Export: **EPPlus**
