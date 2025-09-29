@@ -2128,6 +2128,7 @@ wwwroot\bootstrap\js\bootstrap.js.map
 wwwroot\bootstrap\js\bootstrap.min.js
 wwwroot\bootstrap\js\bootstrap.min.js.map
 wwwroot\css\bootstrap.min.css
+wwwroot\css\heebo.css
 wwwroot\css\style.css
 wwwroot\fontawesome\css\all.css
 wwwroot\fontawesome\css\all.min.css
@@ -2190,4 +2191,3 @@ wwwroot\lib\tempusdominus\js\tempusdominus-bootstrap-4.js
 wwwroot\lib\tempusdominus\js\tempusdominus-bootstrap-4.min.js
 wwwroot\lib\waypoints\links.php
 wwwroot\lib\waypoints\waypoints.min.js
-wwwroot\css\heebo.css

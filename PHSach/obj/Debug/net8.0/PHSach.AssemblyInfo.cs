@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PHSach")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf546049564f323f33ff61580bb999cae17b683b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+227aafd0fa168bc1d1448be552670bb4a02daf07")]
 [assembly: System.Reflection.AssemblyProductAttribute("PHSach")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PHSach")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
