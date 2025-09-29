@@ -5348,11 +5348,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\ngt4m\\PHSach\\PHSach\\PHSach.csproj",
+      "projectUniqueName": "D:\\JOBS\\2025\\TVQD\\PHSach\\PHSach\\PHSach.csproj",
       "projectName": "PHSach",
-      "projectPath": "C:\\Users\\Admin\\source\\repos\\ngt4m\\PHSach\\PHSach\\PHSach.csproj",
+      "projectPath": "D:\\JOBS\\2025\\TVQD\\PHSach\\PHSach\\PHSach.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\source\\repos\\ngt4m\\PHSach\\PHSach\\obj\\",
+      "outputPath": "D:\\JOBS\\2025\\TVQD\\PHSach\\PHSach\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

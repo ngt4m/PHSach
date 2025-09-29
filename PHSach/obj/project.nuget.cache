@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c3vIJ06LR58=",
+  "dgSpecHash": "34PvzOk8OsQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\ngt4m\\PHSach\\PHSach\\PHSach.csproj",
+  "projectFilePath": "D:\\JOBS\\2025\\TVQD\\PHSach\\PHSach\\PHSach.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
