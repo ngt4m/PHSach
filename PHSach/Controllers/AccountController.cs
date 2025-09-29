@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -30,10 +32,12 @@ namespace PHSach.Controllers
         }
 
         [HttpPost("/account/login")]
-        public IActionResult Login(LoginViewModel model)
+        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
             if (!ModelState.IsValid)
-                return View(model);
+            {
+                return BadRequest(new { message = "Dữ liệu không hợp lệ" });
+            }
 
             // 1. Mã hóa password thành MD5
             var passwordHash = model.Password.ToMd5();
@@ -46,45 +50,41 @@ namespace PHSach.Controllers
 
             if (user == null)
             {
-                ModelState.AddModelError("", "Sai tài khoản hoặc mật khẩu");
-                return View(model);
+                return Unauthorized(new { message = "Sai tài khoản hoặc mật khẩu" });
             }
 
-            // 3. Sinh JWT
-            var token = GenerateJwtToken(user);
-
-            // 4. Lưu JWT vào cookie
-            Response.Cookies.Append("AuthToken", token, new CookieOptions
+            // 3. Tạo claims
+            var claims = new List<Claim>
             {
-                HttpOnly = true,
-                Secure = true,
-                Expires = DateTime.UtcNow.AddMinutes(Convert.ToDouble(_config["Jwt:ExpireMinutes"]))
-            });
-
-            return RedirectToAction("Index", "Home");
-        }
-
-        private string GenerateJwtToken(User user)
-        {
-            var key = Encoding.UTF8.GetBytes(_config["Jwt:Key"]);
-            var claims = new[]
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Username),
-                new Claim(ClaimTypes.Name, user.FullName ?? user.Username),
-                new Claim(ClaimTypes.Role, user.Role ?? "User"),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(ClaimTypes.NameIdentifier, user.UserId),
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Email, user.Email ?? string.Empty),
+                new Claim(ClaimTypes.Role, user.Role ?? "User")
             };
 
-            var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
+            // 4. Tạo identity & principal
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
-            var token = new JwtSecurityToken(
-                issuer: _config["Jwt:Issuer"],
-                audience: _config["Jwt:Audience"],
-                claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(Convert.ToDouble(_config["Jwt:ExpireMinutes"])),
-                signingCredentials: creds);
+            // 5. Đăng nhập bằng cookie auth
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                claimsPrincipal,
+                new AuthenticationProperties
+                {
+                    IsPersistent = model.RememberMe, // true nếu chọn "Nhớ mật khẩu"
+                    ExpiresUtc = DateTime.UtcNow.AddMinutes(60)
+                });
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            // 6. Trả JSON cho client
+            return Ok(new { message = "Đăng nhập thành công" });
+        }
+
+
+    [HttpGet]
+        public IActionResult CreateAccount()
+        {
+            return View();
         }
     }
 }

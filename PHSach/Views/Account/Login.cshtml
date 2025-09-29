@@ -1,120 +1,161 @@
 ﻿@{
-    ViewData["Title"] = "Trang chủ";
+    ViewData["Title"] = "Đăng nhập";
+    Layout = null;
 }
 
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- Content Start -->
-<div class="content">
+<head>
+    <meta charset="utf-8">
+    <title>Đăng nhập</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-        <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-            <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
-        </a>
-        <a href="#" class="sidebar-toggler flex-shrink-0">
-            <i class="fa fa-bars"></i>
-        </a>
-        <form class="d-none d-md-flex ms-4">
-            <input class="form-control border-0" type="search" placeholder="Search">
-        </form>
-        <div class="navbar-nav align-items-center ms-auto">
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                    <i class="fa fa-envelope me-lg-2"></i>
-                    <span class="d-none d-lg-inline-flex">Message</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                    <a href="#" class="dropdown-item">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <div class="ms-2">
-                                <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                <small>15 minutes ago</small>
-                            </div>
-                        </div>
-                    </a>
-                    <hr class="dropdown-divider">
-                    <a href="#" class="dropdown-item">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <div class="ms-2">
-                                <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                <small>15 minutes ago</small>
-                            </div>
-                        </div>
-                    </a>
-                    <hr class="dropdown-divider">
-                    <a href="#" class="dropdown-item">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <div class="ms-2">
-                                <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                <small>15 minutes ago</small>
-                            </div>
-                        </div>
-                    </a>
-                    <hr class="dropdown-divider">
-                    <a href="#" class="dropdown-item text-center">See all message</a>
-                </div>
+    <!-- Favicon -->
+    <link rel="icon" href="/img/Logo TVQD.png" type="image/png">
+
+    <!-- Google Font Offline -->
+    <link href="/css/heebo.css" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="/fontawesome/css/all.min.css" rel="stylesheet">
+    <link href="/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Toast css-->
+    <link href="/lib/toast/jquery.toast.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Đang tải...</span>
             </div>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                    <i class="fa fa-bell me-lg-2"></i>
-                    <span class="d-none d-lg-inline-flex">Notificatin</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                    <a href="#" class="dropdown-item">
-                        <h6 class="fw-normal mb-0">Profile updated</h6>
-                        <small>15 minutes ago</small>
-                    </a>
-                    <hr class="dropdown-divider">
-                    <a href="#" class="dropdown-item">
-                        <h6 class="fw-normal mb-0">New user added</h6>
-                        <small>15 minutes ago</small>
-                    </a>
-                    <hr class="dropdown-divider">
-                    <a href="#" class="dropdown-item">
-                        <h6 class="fw-normal mb-0">Password changed</h6>
-                        <small>15 minutes ago</small>
-                    </a>
-                    <hr class="dropdown-divider">
-                    <a href="#" class="dropdown-item text-center">See all notifications</a>
-                </div>
-            </div>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                    <img class="rounded-circle me-lg-2" src="/img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                    <span class="d-none d-lg-inline-flex">John Doe</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                    <a href="#" class="dropdown-item">My Profile</a>
-                    <a href="#" class="dropdown-item">Settings</a>
-                    <a href="#" class="dropdown-item">Log Out</a>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Sign In Start -->
+        <div class="container-fluid">
+            <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+                    <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <a href="index.html" class="">
+                                <h5 class="text-primary"><i class="fa fa-book me-2"></i>PHÁT HÀNH SÁCH</h5>
+                            </a>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="Username" placeholder="name@example.com">
+                            <label for="Username">Tên tài khoản</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" class="form-control" id="Password" placeholder="Password">
+                            <label for="Password">Mật khẩu</label>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="RememberMe">
+                                <label class="form-check-label" for="RememberMe">Nhớ mật khẩu</label>
+                            </div>
+                        </div>
+                        <button type="submit" id="loginBtn" class="btn btn-primary py-3 w-100 mb-4">Đăng nhập</button>
+                        <p class="text-center mb-0">Nếu bạn chưa có tài khoản? <a href="">Liên hệ với quản trị viên!</a></p>
+                    </div>
                 </div>
             </div>
         </div>
-    </nav>
-    <!-- Navbar End -->
-    <!-- Blank Start -->
-    <div class="container-fluid pt-4 px-4">
-        <div class="row vh-100 bg-light rounded align-items-center justify-content-center mx-0">
-            <div class="col-md-6 text-center">
-                <h3>This is blank page</h3>
-            </div>
-        </div>
+        <!-- Log In End -->
+
+        <script>
+            document.getElementById("loginBtn").addEventListener("click", async function(e) {
+                e.preventDefault();
+
+                const data = {
+                    Username: document.getElementById("Username").value,
+                    Password: document.getElementById("Password").value,
+                    RememberMe: document.getElementById("RememberMe").checked
+                };
+
+                try {
+                    const response = await fetch("/account/login", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+
+                        $.toast({
+                            heading: 'Thành công',
+                            text: result.message || "Đăng nhập thành công!",
+                            showHideTransition: 'slide',
+                            icon: 'success',
+                            position: 'top-right',
+                            loaderBg: '#28a745'
+                        });
+
+                        // Chuyển hướng sau 1s
+                        setTimeout(() => window.location.href = "/home", 1000);
+
+                    } else {
+                        const error = await response.json();
+
+                        $.toast({
+                            heading: 'Đăng nhập thất bại',
+                            text: error.message || "Sai tài khoản hoặc mật khẩu",
+                            showHideTransition: 'fade',
+                            icon: 'error',
+                            position: 'top-right',
+                            loaderBg: '#dc3545'
+                        });
+                    }
+                } catch (err) {
+                    console.error("Lỗi:", err);
+
+                    $.toast({
+                        heading: 'Lỗi hệ thống',
+                        text: 'Không thể kết nối đến server.',
+                        showHideTransition: 'plain',
+                        icon: 'warning',
+                        position: 'top-right',
+                        loaderBg: '#ffc107'
+                    });
+                }
+            });
+        </script>
+
     </div>
-    <!-- Blank End -->
-    <!-- Footer Start -->
-    <div class="container-fluid pt-4 px-4">
-        <div class="bg-light rounded-top p-4">
-            <div class="row">
-                <div class="col-12 col-sm-6 text-center text-sm-start">
-                    &copy; <a href="#">Thư viện Quân đội</a>, Phần mềm phát hành sách.
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
 
-</div>
-<!-- Content End -->
+    <!-- JavaScript Libraries -->
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/chart/chart.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/waypoints/waypoints.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="/lib/toast/jquery.toast.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

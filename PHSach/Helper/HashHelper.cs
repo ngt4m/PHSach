@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace PHSach.Helper
@@ -10,7 +11,7 @@ namespace PHSach.Helper
             using var md5 = MD5.Create();
             var inputBytes = Encoding.UTF8.GetBytes(input);
             var hashBytes = md5.ComputeHash(inputBytes);
-            return Convert.ToHexString(hashBytes); // trả về chuỗi HEX, viết hoa
+            return Convert.ToHexString(hashBytes).ToLowerInvariant();
         }
     }
 

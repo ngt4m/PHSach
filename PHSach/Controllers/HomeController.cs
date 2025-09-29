@@ -11,7 +11,7 @@ using System.Text;
 
 namespace PHSach.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly AppDbContext _context;
