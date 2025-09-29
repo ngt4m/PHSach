@@ -23,7 +23,8 @@ namespace PHSach.Controllers
             _config = config;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Login()
         {
             return View();
         }
